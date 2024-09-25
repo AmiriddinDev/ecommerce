@@ -8,3 +8,17 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True # This model will not be created in the
+
+
+class Region(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    def __str__(self):
+        return f'{self.name}'
+
+class District(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE, related_name='districts')
+
+    def __str__(self):
+        return f'{self.name}'

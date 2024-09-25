@@ -30,7 +30,7 @@ class ProductAdmin(admin.ModelAdmin):
 
     def thumbnail(self, obj):
         if obj.image:
-            return format_html(f"<img src='{obj.image.url}' width='50' height='50' />")
+            return format_html(f"<img src='{obj.image.url}' width='50px' height='50px' />")
         return "No Image"
 
     thumbnail.short_description = 'Thumbnail'

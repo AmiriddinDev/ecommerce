@@ -30,6 +30,10 @@ class Product(BaseModel):
         upload_to=product_thumbnail_path_and_rename, null=True, blank=True
     )
 
+    @property
+    def is_in_stock(self):
+        return self.stock > 0
+
     def __str__(self):
         return f"{self.name}"
 

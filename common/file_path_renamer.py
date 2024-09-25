@@ -11,6 +11,6 @@ class PathAndRenamer(object):
     def __call__(self, instance, filename):
         ext = filename.split('.')[-1]
         filename = filename.split('.')[0]
-        today = datetime.now().strftime('%Y-%m-%d')
+        today = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
         filename = f"{filename}_{today}.{ext}"
         return os.path.join(self.sub_path, filename)
